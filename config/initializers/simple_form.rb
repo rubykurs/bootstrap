@@ -1,48 +1,80 @@
-# Use this setup block to configure all options available in SimpleForm.
 SimpleForm.setup do |config|
-  # Wrappers are used by the form builder to generate a
-  # complete input. You can remove any component from the
-  # wrapper, change the order or even add your own to the
-  # stack. The options given below are used to wrap the
-  # whole input.
-  config.wrappers :default, :class => :input,
-    :hint_class => :field_with_hint, :error_class => :field_with_errors do |b|
-    ## Extensions enabled by default
-    # Any of these extensions can be disabled for a
-    # given input by passing: `f.input EXTENSION_NAME => false`.
-    # You can make any of these extensions optional by
-    # renaming `b.use` to `b.optional`.
-
-    # Determines whether to use HTML5 (:email, :url, ...)
-    # and required attributes
-    b.use :html5
-
-    # Calculates placeholders automatically from I18n
-    # You can also pass a string as f.input :placeholder => "Placeholder"
+  # Wrappers are used by the form builder to generate a complete input.
+  # You can remove any component from the wrapper, change the order or even
+  # add your own to the stack. The options given to the wrappers method
+  # are used to wrap the whole input (if any exists).
+  config.wrappers :bootstrap, :tag => 'fieldset', :class => 'control-group', :error_class => 'error' do |b|
     b.use :placeholder
+    b.use :label, :class => 'control-label'
+    b.use :tag => 'div', :class => 'controls' do |ba|
+      ba.use :input
+      ba.use :error, :tag => 'span', :class => 'help-inline'
+      ba.use :hint, :tag => 'p', :class => 'help-block'
+    end
+  end
 
-    ## Optional extensions
-    # They are disabled unless you pass `f.input EXTENSION_NAME => :lookup`
-    # to the input. If so, they will retrieve the values from the model
-    # if any exists. If you want to enable the lookup for any of those
-    # extensions by default, you can change `b.optional` to `b.use`.
+  config.wrappers :checkbox, :tag => 'fieldset', :class => 'control-group', :error_class => 'error' do |b|
+    b.use :placeholder
+    b.use :label, :class => 'control-label'
+    b.use :tag => 'div', :class => 'controls' do |ba|
+      ba.use :tag => 'label', :class => 'checkbox' do |bb|
+        bb.use :input
+      end
+      ba.use :error, :tag => 'span', :class => 'help-inline'
+      ba.use :hint, :tag => 'p', :class => 'help-block'
+    end
+  end
 
-    # Calculates maxlength from length validations for string inputs
-    b.optional :maxlength
+  config.wrappers :inline_checkbox, :tag => 'span', :error_class => 'error' do |b|
+    b.use :placeholder
+    b.use :input
+    b.use :label_text
+    b.use :error, :tag => 'span', :class => 'help-inline'
+    b.use :hint, :tag => 'p', :class => 'help-block'
+  end
 
-    # Calculates pattern from format validations for string inputs
-    b.optional :pattern
+  config.wrappers :inline, :class => 'clearfix', :error_class => :error do |b|
+    b.use :placeholder
+    b.use :label
+    b.use :tag => 'div', :class => 'input' do |ba|
+      ba.use :input
+      ba.use :error, :tag => :span, :class => :'help-inline'
+      ba.use :hint, :tag => :span, :class => :'help-block'
+    end
+  end
 
-    # Calculates min and max from length validations for numeric inputs
-    b.optional :min_max
+  config.wrappers :stacked, :class => "clearfix", :error_class => :error do |b|
+    b.use :placeholder
+    b.use :label
+    b.use :hint, :tag => :span, :class => :'help-block'
+    b.use :tag => 'div', :class => 'input' do |input|
+      input.use :input
+      input.use :error, :tag => :span, :class => :'help-inline'
+    end
+  end
 
-    # Calculates readonly automatically from readonly attributes
-    b.optional :readonly
+  config.wrappers :prepend, :class => "clearfix", :error_class => :error do |b|
+    b.use :placeholder
+    b.use :label
+    b.use :hint, :tag => :span, :class => :'help-block'
+    b.use :tag => 'div', :class => 'input' do |input|
+      input.use :tag => 'div', :class => 'input-prepend' do |prepend|
+        prepend.use :input
+      end
+      input.use :error, :tag => :span, :class => :'help-inline'
+    end
+  end
 
-    ## Inputs
-    b.use :label_input
-    b.use :hint,  :tag => :span, :class => :hint
-    b.use :error, :tag => :span, :class => :error
+  config.wrappers :append, :class => "clearfix", :error_class => :error do |b|
+    b.use :placeholder
+    b.use :label
+    b.use :hint, :tag => :span, :class => :'help-block'
+    b.use :tag => 'div', :class => 'input' do |input|
+      input.use :tag => 'div', :class => 'input-append' do |append|
+        append.use :input
+      end
+      input.use :error, :tag => :span, :class => :'help-inline'
+    end
   end
 
   # Method used to tidy up errors.
@@ -57,23 +89,20 @@ SimpleForm.setup do |config|
   # ID to add for error notification helper.
   # config.error_notification_id = nil
 
+  # You can wrap a collection of radio/check boxes in a pre-defined tag, defaulting to none.
+  # config.collection_wrapper_tag = nil
+
+  # You can wrap each item in a collection of radio/check boxes with a tag, defaulting to span.
+  # config.item_wrapper_tag = :span
+
   # Series of attempts to detect a default label method for collection.
   # config.collection_label_methods = [ :to_label, :name, :title, :to_s ]
 
   # Series of attempts to detect a default value method for collection.
   # config.collection_value_methods = [ :id, :to_s ]
 
-  # You can wrap a collection of radio/check boxes in a pre-defined tag, defaulting to none.
-  # config.collection_wrapper_tag = nil
-
-  # You can define the class to use on all collection wrappers. Defaulting to none.
-  # config.collection_wrapper_class = nil
-
-  # You can wrap each item in a collection of radio/check boxes with a tag, defaulting to span.
-  # config.item_wrapper_tag = :span
-
   # How the label text should be generated altogether with the required text.
-  # config.label_text = lambda { |label, required| "#{required} #{label}" }
+  config.label_text = lambda { |label, required| "#{label} #{required}" }
 
   # You can define the class to use on all labels. Default is nil.
   # config.label_class = nil
@@ -88,13 +117,19 @@ SimpleForm.setup do |config|
   # Default is enabled.
   config.browser_validations = false
 
-  # Collection of methods to detect if a file type was given.
-  # config.file_methods = [ :mounted_as, :file?, :public_filename ]
+  # Determines whether HTML5 types (:email, :url, :search, :tel) and attributes
+  # (e.g. required) are used or not. True by default.
+  # Having this on in non-HTML5 compliant sites can cause odd behavior in
+  # HTML5-aware browsers such as Chrome.
+  # config.html5 = true
 
   # Custom mappings for input types. This should be a hash containing a regexp
   # to match as key, and the input type that will be used when the field name
   # matches the regexp as value.
   # config.input_mappings = { /count/ => :integer }
+
+  # Collection of methods to detect if a file type was given.
+  # config.file_methods = [ :mounted_as, :file?, :public_filename ]
 
   # Default priority for time_zone inputs.
   # config.time_zone_priority = nil
@@ -105,15 +140,9 @@ SimpleForm.setup do |config|
   # Default size for text inputs.
   # config.default_input_size = 50
 
-  # When false, do not use translations for labels.
-  # config.translate_labels = true
-
-  # Automatically discover new inputs in Rails' autoload path.
-  # config.inputs_discovery = true
-
-  # Cache simple form inputs discovery
-  # config.cache_discovery = !Rails.env.development?
+  # When false, do not use translations for labels, hints or placeholders.
+  # config.translate = true
 
   # Default class for buttons
-  # config.button_class = 'button'
+  config.button_class = 'btn'
 end
