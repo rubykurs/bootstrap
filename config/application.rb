@@ -15,6 +15,13 @@ module Rails32bootstrap
     # Application configuration should go into files in config/initializers
     # -- all .rb files in that directory are automatically loaded.
 
+    # scaffold generate with less instead of css
+    config.app_generators.stylesheet_engine :less
+
+    #To prevent rake from trying to spin up environment with db and more, when precompiling assets.
+    #Without it, heroku breaks.
+    config.assets.initialize_on_precompile = false
+
     # Custom directories with classes and modules you want to be autoloadable.
     # config.autoload_paths += %W(#{config.root}/extras)
 

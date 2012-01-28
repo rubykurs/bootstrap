@@ -1,6 +1,19 @@
+GIT
+  remote: git://github.com/plataformatec/simple_form.git
+  revision: 9f7a7bcbb9323e91cf8b9261bf2b31c2a174b342
+  ref: 9f7a7bcbb9323e91cf8b9261bf2b31c2a174b342
+  specs:
+    simple_form (2.0.0.dev)
+      actionpack (~> 3.0)
+      activemodel (~> 3.0)
+
 GEM
   remote: https://rubygems.org/
   specs:
+    POpen4 (0.1.4)
+      Platform (>= 0.4.0)
+      open4
+    Platform (0.4.0)
     actionmailer (3.2.0)
       actionpack (= 3.2.0)
       mail (~> 2.4.0)
@@ -37,6 +50,8 @@ GEM
       coffee-script-source
       execjs
     coffee-script-source (1.2.0)
+    commonjs (0.2.0)
+      therubyracer (~> 0.9.9)
     erubis (2.7.0)
     execjs (1.3.0)
       multi_json (~> 1.0)
@@ -47,12 +62,21 @@ GEM
       railties (>= 3.2.0.beta, < 5.0)
       thor (~> 0.14)
     json (1.6.5)
+    less (2.0.9)
+      commonjs (~> 0.2.0)
+      therubyracer (~> 0.9.9)
+    less-rails (2.1.3)
+      actionpack (>= 3.1)
+      less (~> 2.0.7)
+    libv8 (3.3.10.4)
     mail (2.4.1)
       i18n (>= 0.4.0)
       mime-types (~> 1.16)
       treetop (~> 1.4.8)
     mime-types (1.17.2)
     multi_json (1.0.4)
+    open4 (1.3.0)
+    pg (0.12.2)
     polyglot (0.3.3)
     rack (1.4.1)
     rack-cache (1.1)
@@ -79,25 +103,29 @@ GEM
     rake (0.9.2.2)
     rdoc (3.12)
       json (~> 1.4)
-    sass (3.1.12)
-    sass-rails (3.2.4)
-      railties (~> 3.2.0)
-      sass (>= 3.1.10)
-      tilt (~> 1.3)
     sprockets (2.1.2)
       hike (~> 1.2)
       rack (~> 1.0)
       tilt (~> 1.1, != 1.3.0)
     sqlite3 (1.3.5)
+    therubyracer (0.9.9)
+      libv8 (~> 3.3.10)
     thor (0.14.6)
     tilt (1.3.3)
     treetop (1.4.10)
       polyglot
       polyglot (>= 0.3.1)
+    twitter-bootstrap-rails (1.4.3)
+      actionpack
+      jquery-rails (>= 1.0)
+      less-rails (~> 2.1.0)
+      railties
     tzinfo (0.3.31)
     uglifier (1.2.2)
       execjs (>= 0.3.0)
       multi_json (>= 1.0.2)
+    yui-compressor (0.9.6)
+      POpen4 (>= 0.1.4)
 
 PLATFORMS
   ruby
@@ -105,7 +133,11 @@ PLATFORMS
 DEPENDENCIES
   coffee-rails (~> 3.2.1)
   jquery-rails
+  less-rails (~> 2.1.0)
+  pg
   rails (= 3.2.0)
-  sass-rails (~> 3.2.3)
+  simple_form!
   sqlite3
+  twitter-bootstrap-rails
   uglifier (>= 1.0.3)
+  yui-compressor
