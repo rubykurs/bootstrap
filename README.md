@@ -57,6 +57,7 @@ Change the
  * app/views/home/index.html.erb
  * app/views/layouts/application.html.erb
  * app/assets/stylesheets/application.css
+ * adding app/views/common/_flashes.html.erb
 
 as follows: https://gist.github.com/1698584
 
