@@ -53,9 +53,10 @@ delete generated helpers and tests, they are empty useless files.
 *Use Twitter Bootstrap example for frontpage*
 
 Change the
-- app/views/home/index.html.erb
-- app/views/layouts/application.html.erb
-- app/assets/stylesheets/application.css
+
+ * app/views/home/index.html.erb
+ * app/views/layouts/application.html.erb
+ * app/assets/stylesheets/application.css
 
 as follows: https://gist.github.com/1698584
 
