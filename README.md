@@ -151,7 +151,9 @@ Look, no magic, just tedious tasks:
     $ rails generate
     $ rails generate bootstrap:install
     @ app/assets/stylesheets/application.rb
-      #make sure *= require twitter/bootstrap goes before require_self. Else any changes in application.css will be overriden.
+      MOVE *= require twitter/bootstrap above *=require_self. Else any changes in application.css will be overriden.
+    @ app/assets/stylesheets/bootstrap.css.less
+    - @import "twitter/bootstrap";  REMOVE - it reloads and overrides your changes.
     $ rails generate simple_form:install
 
     @ simple_form.rb
