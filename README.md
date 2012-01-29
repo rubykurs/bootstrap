@@ -101,7 +101,19 @@ https://gist.github.com/1698732
 In this example, we create admin user. Later you could create User as well, if your app needs user accounts.
 
     $ rails g devise admin
+    @ app/models/admin.rb
+      devise :database_authenticatable, :rememberable, :trackable, :validatable
+    @ db/migrate/xxxxxxx_devise_create_admins.rb
+      COMMENT out these
+      #t.string   :reset_password_token
+      #t.datetime :reset_password_sent_at
+      #add_index :admins, :reset_password_token, :unique => true
     $ rake db:migrate
+    @ db/seeds.rb
+      Admin.create!(:email => 'info@rubykurs.no', :password => 'rubyrocks')
+    $ rake db:seed
+
+Go to http://localhost:3000/admins/sign_in and log int with the seed user to test it. Create more users using seeds.rb or doing it manually in rails console
 
 Enable logout buttons to frontpage: See this gist: https://gist.github.com/1698995
 
