@@ -39,6 +39,14 @@ This bootstrap is made by rubykurs.no for a rails class in Norway. Given very sh
 
 ## Next steps.
 
+Study these steps for guides how to
+
+ * Generate frontpage
+ * Use Twitter Bootstrap example for the home page
+ * Use SimpleForm with the twitter bootstrap for great form user interaction and errors
+ * Authenticate (basic auth or devise)
+
+
 *Generate frontpage*
 
 The bootstrap-app is also a stripped app. Nothing to show. Generate a **frontpage**
@@ -125,8 +133,27 @@ Make sure root :to points to *something* (see STEPS above) so you can verify the
 
     $ heroku create myapp --stack cedar
     $ git push heroku master
-    @ http://myapp.herokuapp.com  #should see rails error
 
+    @ http://myapp.herokuapp.com
+
+Learn more about heroku.com
+
+    $ heroku logs --tail
+    $ heroku config #see config and env
+    $ heroku addons #see addons
+    $ heroku run rake db:migrate
+    $ heroku run rake db:seed
+    $ heroku run console  # like rails console, but at your server at heroku!
+
+
+## Logging
+
+For less noise in logs and server console, shut off assets logging
+
+    @ development.rb
+      #Find config.assets.debug ans set to false
+      config.assets.debug = false
+    restart server
 
 ## How to reproduce this app-bootstrap.
 
