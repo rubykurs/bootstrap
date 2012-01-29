@@ -1,0 +1,18 @@
+<!--
+Used for https://github.com/rubykurs/bootstrap
+branch auth
+
+@Gemfile
+gem 'devise'
+$ rails g devise:install
+$ rails g devise admin
+$ rake db:migrate
+-->
+
+<ul class="nav secondary-nav">
+  <% if admin_signed_in? %>
+    <li><%= link_to "Sign out", destroy_admin_session_path, :method => :delete %> </li>
+  <% else %>
+    <li><%= link_to "Admin", new_admin_session_path %></li>
+  <% end %>
+</ul>
