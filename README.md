@@ -150,6 +150,8 @@ Look, no magic, just tedious tasks:
     $ bundle
     $ rails generate
     $ rails generate bootstrap:install
+    @ app/assets/stylesheets/application.rb
+      #make sure *= require twitter/bootstrap goes before require_self. Else any changes in application.css will be overriden.
     $ rails generate simple_form:install
 
     @ simple_form.rb
