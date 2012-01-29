@@ -62,6 +62,8 @@ as follows: https://gist.github.com/1698584
 
 See the http://twitter.github.com/bootstrap/ for more examples on usages
 
+BRANCH **homepage** at github.com/rubykurs/bootstrap has it implemented.
+
 *Using simple form*
 
     rails generate scaffold report title:string description:text email:string
