@@ -26,9 +26,9 @@
 This bootstrap is made by rubykurs.no for a rails class in Norway. Given very short time, we'd like the focus should be on ruby and rails. Real testing and BDD is extremely important, but it all takes time. The guide will surely get outdated soon, any help is appreciated (fork it!)
 
 
-## Must-have: PRY
+**Million-dollar tip, use pry instead of irb:**
 
-*Make sure you run PRY with rails console*
+*Makes sure you run PRY with rails console*
 
     @ ~/.irbrc
     require 'rubygems' unless defined? Gem # rubygems is only needed in 1.8
@@ -36,7 +36,9 @@ This bootstrap is made by rubykurs.no for a rails class in Norway. Given very sh
     Pry.start
     exit
 
-## Next step. Generate frontpage
+## Next steps.
+
+*Generate frontpage*
 
 The bootstrap-app is also a stripped app. Nothing to show. Generate a **frontpage**
 
@@ -45,8 +47,18 @@ The bootstrap-app is also a stripped app. Nothing to show. Generate a **frontpag
     - get "home/index"
     + root :to => 'home#index'
 
-## Use Twitter Bootstrap example for frontpage
+delete generated helpers and tests, they are empty useless files.
 
+*Use Twitter Bootstrap example for frontpage*
+
+Change the
+- app/views/home/index.html.erb
+- app/views/layouts/application.html.erb
+- app/assets/stylesheets/application.css
+
+as follows: https://gist.github.com/1698584
+
+See the http://twitter.github.com/bootstrap/ for more examples on usages
 
 
 ## Deploy to heroku
@@ -100,3 +112,5 @@ Look, no magic, just tedious tasks:
     $ git commit -am "bootstrapped"
     $ git remote add origin git@github.com:myaccount/myapp.git #REPLACE
     $ git push -u origin master
+
+Then follow the **next steps** sections above for home page and devise
