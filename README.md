@@ -67,9 +67,44 @@ BRANCH **homepage** at github.com/rubykurs/bootstrap has it implemented.
 *Using simple form*
 
     rails generate scaffold report title:string description:text email:string
+    rake db:migrate
 
 Compare and change app/veiws/reports/_form.html.erb to
 https://gist.github.com/1698732
+
+
+**Authentication**
+
+*Option 1: Really basic Basic Authentication*
+
+    @reports_controller.rb
+     before_filter :require_admin, :except => ['new']
+    private
+     def require_admin
+       authenticate_or_request_with_http_basic do |id, password|
+         [id, password] == ["ruby", "rocks"]
+       end
+     end
+
+*Option 2: Roll your own* http://railscasts.com/episodes/250-authentication-from-scratch
+
+*Option 3: Use popular framework like devise*
+
+    @ Gemfile
+    + gem 'devise'
+    $ bundle
+    $ rails generate #see devise
+    $ rails generate devise:install
+    # check the instructions. in the above steps, 2., 3. and 4. have already been done. Do 1.
+
+In this example, we create admin user. Later you could create User as well, if your app needs user accounts.
+
+    $ rails g devise admin
+    $ rake db:migrate
+
+Enable logout buttons to frontpage: See this gist: https://gist.github.com/1698995
+
+
 
 ## Deploy to heroku
 
