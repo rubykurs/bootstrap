@@ -20,6 +20,7 @@
  + RSpec
  + Cucumber
  + fabricator
+ + HAML or other template language (use ERB)
  + no custom migrations, controllers, models or views. This is your job
  + devise - no authentication or authorization (check out branch 'auth' for implementation)
 
@@ -52,18 +53,25 @@ delete generated helpers and tests, they are empty useless files.
 *Use Twitter Bootstrap example for frontpage*
 
 Change the
-- app/views/home/index.html.erb
-- app/views/layouts/application.html.erb
-- app/assets/stylesheets/application.css
+
+ * app/views/home/index.html.erb
+ * app/views/layouts/application.html.erb
+ * app/assets/stylesheets/application.css
 
 as follows: https://gist.github.com/1698584
 
 See the http://twitter.github.com/bootstrap/ for more examples on usages
 
+*Using simple form*
+
+    rails generate scaffold report title:string description:text email:string
+
+Compare and change app/veiws/reports/_form.html.erb to
+https://gist.github.com/1698732
 
 ## Deploy to heroku
 
-Make sure root :to points to *something*, so you can verify the deploy
+Make sure root :to points to *something* (see STEPS above) so you can verify the deploy
 
     $ heroku create myapp --stack cedar
     $ git push heroku master
