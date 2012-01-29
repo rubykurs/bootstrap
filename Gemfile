@@ -25,6 +25,7 @@ end
 gem 'simple_form', :git => 'git://github.com/plataformatec/simple_form.git', :ref => "9f7a7bcbb9323e91cf8b9261bf2b31c2a174b342"
 gem 'twitter-bootstrap-rails'
 gem 'jquery-rails'
+gem 'devise'
 
 group :production do
   gem 'pg'
