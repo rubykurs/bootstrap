@@ -186,7 +186,7 @@ Look, no magic, just tedious tasks:
     @ production.rb
     +  config.assets.css_compressor = :yui
 
-    $ bundle
+    $ bundle --without production
     $ rails generate
     $ rails generate bootstrap:install
     @ app/assets/stylesheets/application.rb
