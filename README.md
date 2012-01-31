@@ -27,15 +27,9 @@
 This bootstrap is made by rubykurs.no for a rails class in Norway. Given very short time, we'd like the focus should be on ruby and rails. Real testing and BDD is extremely important, but it all takes time. The guide will surely get outdated soon, any help is appreciated (fork it!)
 
 
-**Million-dollar tip, use pry instead of irb:**
+**Million-dollar tip, use pry instead of irb, have colors for git diff, shortcuts for git and more:**
 
-*Makes sure you run PRY with rails console*
-
-    @ ~/.irbrc
-    require 'rubygems' unless defined? Gem # rubygems is only needed in 1.8
-    require 'pry'
-    Pry.start
-    exit
+https://gist.github.com/1710625
 
 ## Next steps.
 
