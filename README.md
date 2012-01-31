@@ -27,15 +27,9 @@
 This bootstrap is made by rubykurs.no for a rails class in Norway. Given very short time, we'd like the focus should be on ruby and rails. Real testing and BDD is extremely important, but it all takes time. The guide will surely get outdated soon, any help is appreciated (fork it!)
 
 
-**Million-dollar tip, use pry instead of irb:**
+**Million-dollar tip, use pry instead of irb, have colors for git diff, shortcuts for git and more:**
 
-*Makes sure you run PRY with rails console*
-
-    @ ~/.irbrc
-    require 'rubygems' unless defined? Gem # rubygems is only needed in 1.8
-    require 'pry'
-    Pry.start
-    exit
+https://gist.github.com/1710625
 
 ## Next steps.
 
@@ -180,22 +174,22 @@ Look, no magic, just tedious tasks:
     +  gem 'yui-compressor'
     +end
 
-    @ application.rb
+    @ application.rb  (config/)
     + config.app_generators.stylesheet_engine :less
     + config.assets.initialize_on_precompile = false
-    @ production.rb
+    @ production.rb  (config/environments/)
     +  config.assets.css_compressor = :yui
 
-    $ bundle
+    $ bundle --without production
     $ rails generate
     $ rails generate bootstrap:install
-    @ app/assets/stylesheets/application.rb
+    @ app/assets/stylesheets/application.css
       MOVE *= require twitter/bootstrap above *=require_self. Else any changes in application.css will be overriden.
     @ app/assets/stylesheets/bootstrap.css.less
     - @import "twitter/bootstrap";  REMOVE - it reloads and overrides your changes.
     $ rails generate simple_form:install
 
-    @ simple_form.rb
+    @ config/initializers/simple_form.rb
      replace with this gist: https://gist.github.com/1695634
 
     $ git commit -am "bootstrapped"
