@@ -73,7 +73,7 @@ BRANCH **homepage** at github.com/rubykurs/bootstrap has it implemented.
     rake db:migrate
     #add twitter bootstrap css classes to the form (see below). 
     
-Compare and change app/veiws/reports/_form.html.erb to https://gist.github.com/1698732
+twitter form bootstrap: Compare and change app/veiws/reports/_form.html.erb to https://gist.github.com/1698732
 
 
 **Authentication**
