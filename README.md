@@ -71,9 +71,9 @@ BRANCH **homepage** at github.com/rubykurs/bootstrap has it implemented.
 
     rails generate scaffold report title:string description:text email:string
     rake db:migrate
-
-Compare and change app/veiws/reports/_form.html.erb to
-https://gist.github.com/1698732
+    #add twitter bootstrap css classes to the form (see below). 
+    
+Compare and change app/veiws/reports/_form.html.erb to https://gist.github.com/1698732
 
 
 **Authentication**
