@@ -192,8 +192,10 @@ Look, no magic, just tedious tasks:
     @ config/initializers/simple_form.rb
      replace with this gist: https://gist.github.com/1695634
 
+    $ git add .
     $ git commit -am "bootstrapped"
-    $ git remote add origin git@github.com:myaccount/myapp.git #REPLACE
+    # Create Repo at github.com 
+    $ git remote add origin git@github.com:myaccount/myapp.git #REPLACE myapp.git
     $ git push -u origin master
 
 Then follow the **next steps** sections above for home page and devise
